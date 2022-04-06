@@ -1,5 +1,7 @@
-import 'package:flutter_guide_whitelabel/app/modules/guide/guide_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'modules/guide/guide_module.dart';
+import 'modules/home/home_module.dart';
 
 class AppModule extends Module {
   @override
@@ -7,6 +9,7 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute('/', module: GuideModule()),
+    ModuleRoute('/', module: HomeModule()),
+    ModuleRoute('/guide', module: GuideModule()),
   ];
 }

@@ -1,5 +1,7 @@
-import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/home/home_module.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'guide_page.dart';
 
 class GuideModule extends Module {
   @override
@@ -7,9 +9,29 @@ class GuideModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(
+    ChildRoute(
       '/',
-      module: HomeModule(),
+      child: (context, args) => const GuidePage(),
+      children: [
+        ChildRoute(
+          '/page1',
+          child: (context, args) => Container(
+            color: Colors.red,
+          ),
+        ),
+        ChildRoute(
+          '/page2',
+          child: (context, args) => Container(
+            color: Colors.amber,
+          ),
+        ),
+        ChildRoute(
+          '/page3',
+          child: (context, args) => Container(
+            color: Colors.green,
+          ),
+        ),
+      ],
     ),
   ];
 }
