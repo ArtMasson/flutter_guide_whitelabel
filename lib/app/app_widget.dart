@@ -10,6 +10,8 @@ class AppWidget extends StatelessWidget {
       title: 'Flutter Guide',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
+        scaffoldBackgroundColor: const Color.fromRGBO(253, 253, 253, 1),
       ),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       child: ElevatedButton(
         child: const Text('Guia'),
         onPressed: () {
-          Modular.to.navigate('/guide');
+          Modular.to.navigate('/guide/page1');
         },
       ),
     );
