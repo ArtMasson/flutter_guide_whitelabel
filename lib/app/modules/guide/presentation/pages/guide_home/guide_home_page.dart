@@ -3,7 +3,7 @@ import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/gu
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart' as get_x;
 
-import '../../helpers/guides_list.dart';
+import '../../consts/guides_list.dart';
 import 'widgets/guide_drawer.dart';
 import 'widgets/guide_sidebar_widget.dart';
 
