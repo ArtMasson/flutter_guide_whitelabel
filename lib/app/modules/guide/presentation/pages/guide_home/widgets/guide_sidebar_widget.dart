@@ -1,49 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/models/guide_model.dart';
+import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/widgets/guide_list/guide_tile_list_widget.dart';
 
 class GuideSidebarWidget extends StatelessWidget {
-  final Function? onTap;
+  final List<GuideModel> guides;
+  final void Function({required GuideModel guide}) onTapGuide;
+  final String selectedRoute;
 
   const GuideSidebarWidget({
-    this.onTap,
+    required this.guides,
+    required this.onTapGuide,
+    required this.selectedRoute,
     Key? key,
   }) : super(key: key);
-
-  _closeDrawer() {
-    if (onTap != null) {
-      onTap!();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 300,
-      child: Column(
-        children: [
-          ListTile(
-            title: const Text('Flutter: Do Mobile a Web'),
-            onTap: () {
-              _closeDrawer();
-
-              Modular.to.navigate('page1');
-            },
-          ),
-          ListTile(
-            title: const Text('Page 2'),
-            onTap: () {
-              _closeDrawer();
-              Modular.to.navigate('page2');
-            },
-          ),
-          ListTile(
-            title: const Text('Page 3'),
-            onTap: () {
-              _closeDrawer();
-              Modular.to.navigate('page3');
-            },
-          ),
-        ],
+      child: GuideTileListWidget(
+        guides: guides,
+        onTapGuide: onTapGuide,
+        selectedRoute: selectedRoute,
       ),
     );
   }

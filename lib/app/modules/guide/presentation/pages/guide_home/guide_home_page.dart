@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/guide_home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart' as get_x;
 
+import '../../helpers/guides_list.dart';
 import 'widgets/guide_drawer.dart';
 import 'widgets/guide_sidebar_widget.dart';
 
@@ -13,7 +16,8 @@ class GuideHomePage extends StatefulWidget {
   State<GuideHomePage> createState() => _GuideHomePageState();
 }
 
-class _GuideHomePageState extends State<GuideHomePage> {
+class _GuideHomePageState
+    extends ModularState<GuideHomePage, GuideHomeController> {
   int currentIndex = 0;
 
   @override
@@ -28,7 +32,13 @@ class _GuideHomePageState extends State<GuideHomePage> {
 
     return Scaffold(
       drawer: MediaQuery.of(context).size.width < 768
-          ? const GuideDrawerWidget()
+          ? get_x.Obx(
+              () => GuideDrawerWidget(
+                guides: guidesList,
+                onTapGuide: controller.onTapGuide,
+                selectedRoute: controller.store.selectedGuide?.route ?? '',
+              ),
+            )
           : null,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -36,7 +46,7 @@ class _GuideHomePageState extends State<GuideHomePage> {
         toolbarHeight: 50,
         backgroundColor: theme.colorScheme.background,
         title: const Text(
-          'Flutter SDK',
+          'Flutter Guide',
           style: TextStyle(
             color: Colors.black,
             fontSize: 16,
@@ -46,7 +56,13 @@ class _GuideHomePageState extends State<GuideHomePage> {
       body: Row(
         children: [
           if (MediaQuery.of(context).size.width > 768)
-            const GuideSidebarWidget(),
+            get_x.Obx(
+              () => GuideSidebarWidget(
+                guides: guidesList,
+                onTapGuide: controller.onTapGuide,
+                selectedRoute: controller.store.selectedGuide?.route ?? '',
+              ),
+            ),
           Container(
             width: 1,
             color: theme.scaffoldBackgroundColor,
