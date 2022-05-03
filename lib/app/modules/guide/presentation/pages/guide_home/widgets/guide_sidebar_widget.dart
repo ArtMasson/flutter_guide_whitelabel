@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/models/guide_model.dart';
 import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/widgets/guide_list/guide_tile_list_widget.dart';
+
+import '../../../models/guide_model.dart';
 
 class GuideSidebarWidget extends StatelessWidget {
   final List<GuideModel> guides;

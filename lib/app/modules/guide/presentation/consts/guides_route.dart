@@ -1,49 +1,28 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../pages/guide_home/guide_home_page.dart';
+import '../widgets/default_guide_page_widget.dart';
+import 'guides_list.dart';
 
 final List<ModularRoute> guidesRoutes = [
   ChildRoute(
     '/',
     child: (context, args) => const GuideHomePage(),
-    children: [
-      ChildRoute(
-        '/page1',
-        child: (context, args) => Container(
-          color: const Color.fromRGBO(253, 253, 253, 1),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Guia 1'),
-            ],
-          ),
-        ),
-      ),
-      ChildRoute(
-        '/page2',
-        child: (context, args) => Container(
-          color: const Color.fromRGBO(253, 253, 253, 1),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Guia 2'),
-            ],
-          ),
-        ),
-      ),
-      ChildRoute(
-        '/page3',
-        child: (context, args) => Container(
-          color: const Color.fromRGBO(253, 253, 253, 1),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Guia 3'),
-            ],
-          ),
-        ),
-      ),
-    ],
+    children: _getGuideRoutes(),
   ),
 ];
+
+List<ChildRoute> _getGuideRoutes() {
+  return guidesList
+      .map(
+        (guide) => ChildRoute(
+          '/${guide.route}',
+          child: (context, args) => DefaultGuidePageWidget(
+            title: guide.title,
+            imageUrl: '',
+            description: guide.description,
+          ),
+        ),
+      )
+      .toList();
+}

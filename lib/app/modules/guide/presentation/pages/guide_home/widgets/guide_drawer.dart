@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/guide_model.dart';
+import '../../../models/guide_model.dart';
 import 'guide_sidebar_widget.dart';
 
 class GuideDrawerWidget extends StatelessWidget {
