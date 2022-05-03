@@ -25,17 +25,21 @@ class DefaultGuidePageWidget extends StatelessWidget {
           ),
           Text(
             title,
+            textAlign: TextAlign.justify,
           ),
           const SizedBox(
             height: 50,
           ),
           Expanded(
-            child: ListView(
-              children: description
-                  .map(
-                    (e) => Text(e),
-                  )
-                  .toList(),
+            child: ListView.separated(
+              separatorBuilder: (_, __) => const SizedBox(
+                height: 10,
+              ),
+              itemCount: description.length,
+              itemBuilder: (_, index) => Text(
+                description[index],
+                textAlign: TextAlign.justify,
+              ),
             ),
           ),
         ],
