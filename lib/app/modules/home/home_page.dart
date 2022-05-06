@@ -6,13 +6,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        child: const Text('Guia'),
-        onPressed: () {
-          Modular.to.navigate('/guide/page1');
-        },
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        ElevatedButton(
+          child: const Text('Conteúdos'),
+          onPressed: () {
+            Modular.to.navigate('/guide/page1');
+          },
+        ),
+        ElevatedButton(
+          child: const Text('Inserir conteúdo'),
+          onPressed: () {
+            Modular.to.navigate('/guide/new');
+          },
+        ),
+      ],
     );
   }
 }

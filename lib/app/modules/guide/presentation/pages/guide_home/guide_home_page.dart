@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart' as get_x;
 
 import '../../consts/guides_list.dart';
+import '../../widgets/guide_app_bar_widget.dart';
 import 'widgets/guide_drawer.dart';
 import 'widgets/guide_sidebar_widget.dart';
 
@@ -40,18 +41,9 @@ class _GuideHomePageState
               ),
             )
           : null,
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        shadowColor: Colors.white70,
-        toolbarHeight: 50,
-        backgroundColor: theme.colorScheme.background,
-        title: const Text(
-          'Flutter Guide',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 16,
-          ),
-        ),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: GuideAppBarWidget(),
       ),
       body: Row(
         children: [

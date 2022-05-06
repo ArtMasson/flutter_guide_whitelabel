@@ -1,3 +1,4 @@
+import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_create/guide_create_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../pages/guide_home/guide_home_page.dart';
@@ -9,6 +10,10 @@ final List<ModularRoute> guidesRoutes = [
     '/',
     child: (context, args) => const GuideHomePage(),
     children: _getGuideRoutes(),
+  ),
+  ChildRoute(
+    '/new',
+    child: (context, args) => const GuideCreatePage(),
   ),
 ];
 
