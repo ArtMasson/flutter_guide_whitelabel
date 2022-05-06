@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/models/item_model.dart';
 
 class DefaultGuidePageWidget extends StatelessWidget {
   final String title;
   final String imageUrl;
-  final List<String> description;
+  final List<ItemModel> content;
 
   const DefaultGuidePageWidget({
     required this.title,
     required this.imageUrl,
-    required this.description,
+    required this.content,
     Key? key,
   }) : super(key: key);
 
@@ -35,15 +36,35 @@ class DefaultGuidePageWidget extends StatelessWidget {
               separatorBuilder: (_, __) => const SizedBox(
                 height: 10,
               ),
-              itemCount: description.length,
-              itemBuilder: (_, index) => Text(
-                description[index],
-                textAlign: TextAlign.justify,
+              itemCount: content.length,
+              itemBuilder: (_, index) => _buildItemType(
+                item: content[index],
               ),
             ),
           ),
         ],
       ),
     );
+  }
+
+  _buildItemType({
+    required ItemModel item,
+  }) {
+    switch (item.type) {
+      case ContentType.text:
+        return Text(
+          item.content,
+          textAlign: TextAlign.justify,
+        );
+      case ContentType.image:
+        return Image.network(
+          item.content,
+        );
+      default:
+        return Text(
+          item.content,
+          textAlign: TextAlign.justify,
+        );
+    }
   }
 }

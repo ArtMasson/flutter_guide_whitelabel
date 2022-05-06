@@ -20,7 +20,7 @@ List<ChildRoute> _getGuideRoutes() {
           child: (context, args) => DefaultGuidePageWidget(
             title: guide.title,
             imageUrl: '',
-            description: guide.description,
+            content: guide.content,
           ),
         ),
       )
