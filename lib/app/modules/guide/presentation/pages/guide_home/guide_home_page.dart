@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/pages/guide_home/guide_home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:get/get.dart' as get_x;
 
 import '../../consts/guides_list.dart';
 import '../../widgets/guide_app_bar_widget.dart';
+import 'guide_home_controller.dart';
 import 'widgets/guide_drawer.dart';
 import 'widgets/guide_sidebar_widget.dart';
 

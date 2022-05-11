@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/models/item_model.dart';
+
+import '../models/item_model.dart';
 
 class DefaultGuidePageWidget extends StatelessWidget {
   final String title;

@@ -1,6 +1,5 @@
-import 'package:flutter_guide_whitelabel/app/modules/guide/presentation/models/item_model.dart';
-
 import '../models/guide_model.dart';
+import '../models/item_model.dart';
 
 final List<GuideModel> guidesList = [
   GuideModel(
